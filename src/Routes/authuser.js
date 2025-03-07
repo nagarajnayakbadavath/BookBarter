@@ -70,4 +70,7 @@ authRouter.post("/user/logout",auth,async(req,res)=>{
     }
 });
 
+//updateProfile
+//Delte the user
+
 module.exports=authRouter;

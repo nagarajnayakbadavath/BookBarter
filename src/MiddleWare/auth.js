@@ -13,7 +13,7 @@ const userAuth=async(req,res,next)=>{
             return res.send("token is expired please login again");
         }
         const decodedobj=jwt.verify(token,jwt_secret_key);
-        console.log(_id);
+        const {_id}=decodedobj;
         const user=await UserModel.findById(_id);
         if(!user){
             return res.send("user not found");

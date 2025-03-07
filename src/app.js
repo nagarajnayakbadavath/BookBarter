@@ -11,7 +11,10 @@ app.use(cookieParser());
 const port=process.env.PORT;
 
 const authRouter=require('./Routes/authuser');
+const bookRouter=require('./Routes/bookdetails');
+
 app.use("/",authRouter);
+app.use("/",bookRouter);
 
 app.listen(port,()=>{
     console.log(`app is listening on port num ${port}`);
