@@ -3,18 +3,15 @@ require('dotenv').config();
 const mongoose=require('mongoose');
 const dbUrl=require('./Config/connectiondb');
 //create app
-const app=express()
+const app=express();
+app.use(express.json());    //it will allows json data we entry from postman 
+const cookieParser=require('cookie-parser');
+app.use(cookieParser());
 //make a port
 const port=process.env.PORT;
 
-app.get(`http://localhost:${port}/`,(req,res)=>{
-    try{
-        res.send("Hello I am Nagaraju");
-        console.log("Hello");
-    }catch(err){
-        console.log(err.message);
-    }
-});
+const authRouter=require('./Routes/authuser');
+app.use("/",authRouter);
 
 app.listen(port,()=>{
     console.log(`app is listening on port num ${port}`);
