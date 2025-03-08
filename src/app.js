@@ -9,10 +9,16 @@ const cookieParser=require('cookie-parser');
 app.use(cookieParser());
 //make a port
 const port=process.env.PORT;
-
+const cors=require('cors');
+app.use(cors());
+app.use(
+    cors({
+      origin: "http://localhost:8082", 
+      credentials: true,
+    })
+  );
 const authRouter=require('./Routes/authuser');
 const bookRouter=require('./Routes/bookdetails');
-
 app.use("/",authRouter);
 app.use("/",bookRouter);
 
