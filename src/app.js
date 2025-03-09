@@ -10,10 +10,10 @@ app.use(cookieParser());
 //make a port
 const port=process.env.PORT;
 const cors=require('cors');
-app.use(cors());
+
 app.use(
     cors({
-      origin: "http://localhost:8082", 
+      origin: "http://192.168.4.151:8082", 
       credentials: true,
     })
   );
